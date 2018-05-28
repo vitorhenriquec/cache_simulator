@@ -22,6 +22,7 @@ class Config{
 		Config();
 		Config(string path);
 		~Config();
+		string getLinhasCache();
 };
 
 #endif

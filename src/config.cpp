@@ -44,3 +44,7 @@ Config::Config(string path){
 Config::~Config(){
 
 }
+
+string Config::getLinhasCache(){
+	return linhasCache;
+}
