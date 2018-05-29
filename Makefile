@@ -13,7 +13,7 @@ BINDIR = ./bin
 CC = g++
 CFLAGS = -O0 -Wall -Wextra -ansi -pedantic -g -ggdb -std=c++11 -lm -I. -I$(INCDIR)
 RM = rm
-OBJS = $(addprefix $(OBJDIR)/,config.o cache.o)
+OBJS = $(addprefix $(OBJDIR)/,config.o cache.o bloco.o memprincipal.o)
 # Here on the OBJS I look for the files specified inside the (addprefix) and
 # after the comma and add the $(OBJDIR) is added to the beginning of each of the
 # files. More info on (https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html).
@@ -21,7 +21,7 @@ OBJS = $(addprefix $(OBJDIR)/,config.o cache.o)
 # Phony targets (for more information, visit https://www.gnu.org/software/make/manual/make.html#Phony-Targets)
 .PHONY: clean cleanobj cleanbin
 .PHONY: all main build
-.PHONY: config cache
+.PHONY: config cache bloco memprincipal
 
 # Use "make" to execute everything
 all: build main
@@ -30,12 +30,16 @@ all: build main
 main: $(BINDIR)/programa
 
 # Use "make build" to build all the modules
-build: config cache
+build: config cache bloco
 
 # Use "make SOMETHING" to build only the SOMETHING module
 config: $(OBJDIR)/config.o 
 
 cache: $(OBJDIR)/cache.o
+
+bloco: $(OBJDIR)/bloco.o
+
+memprincipal: $(OBJDIR)/memprincipal.o 
 
 # Compiles the main
 $(BINDIR)/programa: $(SRCDIR)/main.cpp $(OBJS)
@@ -46,7 +50,15 @@ $(OBJDIR)/config.o: $(SRCDIR)/config.cpp $(INCDIR)/config.hpp
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJDIR)/cache.o: $(SRCDIR)/cache.cpp $(INCDIR)/cache.hpp
+$(OBJDIR)/cache.o: $(SRCDIR)/cache.cpp $(INCDIR)/cache.hpp $(SRCDIR)/bloco.cpp $(INCDIR)/bloco.hpp
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/bloco.o: $(SRCDIR)/bloco.cpp $(INCDIR)/bloco.hpp
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/memprincipal.o: $(SRCDIR)/memprincipal.cpp $(INCDIR)/memprincipal.hpp $(SRCDIR)/bloco.cpp $(INCDIR)/bloco.hpp
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
