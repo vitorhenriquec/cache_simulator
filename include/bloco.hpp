@@ -10,6 +10,7 @@ class Bloco{
 	public:
 		Bloco();
 		~Bloco();
+		string getEndereco();
 };
 
 #endif

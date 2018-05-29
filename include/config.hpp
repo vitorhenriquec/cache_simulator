@@ -25,6 +25,7 @@ class Config{
 		string getLinhasCache();
 		string getTamBloco();
 		string getBlocosMemoria();
+		string getTipoMap();
 };
 
 #endif

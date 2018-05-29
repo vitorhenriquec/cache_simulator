@@ -5,9 +5,8 @@ using namespace std;
 #include"../include/config.hpp"
 #include"../include/cache.hpp"
 #include"../include/memprincipal.hpp"
+#include"../include/simulador.hpp"
 
-enum mapeamento{ Direto=1, tAssociativo, pAssociativo};
-enum substituicao{Aleatorio=1,FIFO,LFU,LRU};
 
 int main(){
 	//Salva as configurações do .txt
@@ -19,11 +18,26 @@ int main(){
 	//Instacia a memoria com seus blocos
 	MemoriaPrincipal mem(config.getBlocosMemoria(),config.getTamBloco());
 
+	//Instacia um simulador para executar as ações
+	Simulador s;
 	//Pede que o usuário digite algum comando e caso for 'exit' finaliza o programa;
-	string op;
+	string op,tmp1,tmp2;
 	do{
 		cin >> op;
-	}while(op!="exit");
+		if(op == "Read"){
+			cin >> tmp1;
+			s.readInstrucao(tmp1,c,config);
+		}
+		else if(op == "Write"){
+			cin >> tmp1;
+			cin >> tmp2;
+			//s.writeInstrucao(tmp1,tmp2,c,mem);
+		}
+		else if(op == "Show"){
+			//s.show()
+		}
+
+	}while(op!="Exit");
 
 	return 0;
 }

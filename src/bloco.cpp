@@ -7,3 +7,7 @@ Bloco::Bloco(){
 Bloco::~Bloco(){
 
 }
+
+string Bloco::getEndereco(){
+	return endereco;
+}

@@ -56,3 +56,7 @@ string Config::getTamBloco(){
 string Config::getBlocosMemoria(){
 	return blocosMemoria;
 }
+
+string Config::getTipoMap(){
+	return tipoMap;
+}

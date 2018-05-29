@@ -10,9 +10,11 @@ using std::stoi;
 class MemoriaPrincipal{
 	private:
 		Bloco *bloco;
+		int tamBloco;
 	public:
 		MemoriaPrincipal();
 		MemoriaPrincipal(string blocosMemoria, string tamBloco);
 		~MemoriaPrincipal();
+		//int getTamBloco();
 	};
 #endif

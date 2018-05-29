@@ -12,12 +12,15 @@ using std::stoi;
 #include "bloco.hpp"
 
 class Cache{
-	private:
+	protected:
 		Bloco *linha;
+		int tamLinha;
 	public:
 		Cache();
 		Cache(string linhasCache,string tamBloco);
 		~Cache();
+		int getTamLinha();
+		Bloco * getLinha();
 };
 
 #endif
