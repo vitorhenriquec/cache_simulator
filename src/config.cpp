@@ -22,13 +22,13 @@ Config::Config(string path){
 					linhasCache = line;
 				break;
 				case 2:
-					nblocosMemoria = line;
+					blocosMemoria = line;
 				break;
 				case 3:
 					tipoMap = line;
 				break;
 				case 4:
-					nConjuntos = line;
+					qtdConjuntos = line;
 				break;
 				case 5:
 					tipoSubs = line;
@@ -47,4 +47,12 @@ Config::~Config(){
 
 string Config::getLinhasCache(){
 	return linhasCache;
+}
+
+string Config::getTamBloco(){
+	return tamBloco;
+}
+
+string Config::getBlocosMemoria(){
+	return blocosMemoria;
 }
