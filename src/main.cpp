@@ -18,6 +18,7 @@ int main(){
 	//Instacia a memoria com seus blocos
 	MemoriaPrincipal mem(config.getBlocosMemoria(),config.getTamBloco());
 
+	
 	//Instacia um simulador para executar as ações
 	Simulador s;
 	//Pede que o usuário digite algum comando e caso for 'exit' finaliza o programa;
@@ -38,6 +39,6 @@ int main(){
 		}
 
 	}while(op!="Exit");
-
+	
 	return 0;
 }

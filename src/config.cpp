@@ -8,11 +8,12 @@ Config::Config(string path){
 	string line;
 	int counter = 0;
 	ifstream file(path);
-	cout << path << endl;
+	
 	if(file.is_open() == 0 || file.bad() || !file){
 		cerr << "Não foi possível abrir o arquivo" << endl;
 	}
 	else{
+		cout << "Informações lidas do .config:" << endl;
 		while(file >> line){
 			switch(counter){
 				case 0:
