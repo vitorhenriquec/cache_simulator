@@ -17,22 +17,22 @@ Config::Config(string path){
 		while(file >> line){
 			switch(counter){
 				case 0:
-					tamBloco = line;
+					tamBloco = stoi(line);
 				break;
 				case 1:
-					linhasCache = line;
+					linhasCache = stoi(line);
 				break;
 				case 2:
-					blocosMemoria = line;
+					blocosMemoria = stoi(line);
 				break;
 				case 3:
-					tipoMap = line;
+					tipoMap = stoi(line);
 				break;
 				case 4:
-					qtdConjuntos = line;
+					qtdConjuntos = stoi(line);
 				break;
 				case 5:
-					tipoSubs = line;
+					tipoSubs = stoi(line);
 				break;
 			}
 			cout << line << endl;
@@ -46,18 +46,18 @@ Config::~Config(){
 
 }
 
-string Config::getLinhasCache(){
+int Config::getLinhasCache(){
 	return linhasCache;
 }
 
-string Config::getTamBloco(){
+int Config::getTamBloco(){
 	return tamBloco;
 }
 
-string Config::getBlocosMemoria(){
+int Config::getBlocosMemoria(){
 	return blocosMemoria;
 }
 
-string Config::getTipoMap(){
+int Config::getTipoMap(){
 	return tipoMap;
 }

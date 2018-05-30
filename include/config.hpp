@@ -17,15 +17,15 @@ Política de substituição (1 – Aleatório; 2 – FIFO; 3 – LFU; 4 – LRU)
 
 class Config{
 	private:
-		string tamBloco, linhasCache, blocosMemoria, qtdConjuntos,tipoMap, tipoSubs;
+		int tamBloco, linhasCache, blocosMemoria, qtdConjuntos,tipoMap, tipoSubs;
 	public:
 		Config();
 		Config(string path);
 		~Config();
-		string getLinhasCache();
-		string getTamBloco();
-		string getBlocosMemoria();
-		string getTipoMap();
+		int getLinhasCache();
+		int getTamBloco();
+		int getBlocosMemoria();
+		int getTipoMap();
 };
 
 #endif

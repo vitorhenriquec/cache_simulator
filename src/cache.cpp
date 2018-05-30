@@ -4,8 +4,8 @@ Cache::Cache(){
 	
 }
 
-Cache::Cache(string linhasCache,string tamBloco){
-	tamLinha = (int) stoi(linhasCache)*stoi(tamBloco);
+Cache::Cache(int linhasCache,int tamBloco){
+	tamLinha = linhasCache*tamBloco;
 	linha = new Bloco[tamLinha];
 }
 

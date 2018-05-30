@@ -19,8 +19,9 @@ class MemoriaPrincipal{
 		int tamBloco;
 	public:
 		MemoriaPrincipal();
-		MemoriaPrincipal(string blocosMemoria, string tamBloco);
+		MemoriaPrincipal(int blocosMemoria, int tamBloco);
 		~MemoriaPrincipal();
+		Bloco * getBloco();
 		//int getTamBloco();
 	};
 #endif

@@ -27,7 +27,7 @@ int main(){
 		cin >> op;
 		if(op == "Read"){
 			cin >> tmp1;
-			s.readInstrucao(tmp1,c,config);
+			s.readInstrucao(tmp1,c,config,mem);
 		}
 		else if(op == "Write"){
 			cin >> tmp1;

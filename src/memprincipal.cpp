@@ -4,21 +4,20 @@ MemoriaPrincipal::MemoriaPrincipal(){
 
 }
 
-MemoriaPrincipal::MemoriaPrincipal(string blocosMemoria, string tamBloco){
+MemoriaPrincipal::MemoriaPrincipal(int blocosMemoria, int tamBloco){
 	//Calculo o tamanho do bloco para a memoria
-	this->tamBloco = stoi(blocosMemoria)*stoi(tamBloco);
+	//this->tamBloco = stoi(blocosMemoria)*stoi(tamBloco);
+	this->tamBloco = blocosMemoria*tamBloco;
 
 	//Aloco o ponteiro para Bloco
 	bloco = new Bloco[this->tamBloco];
-
-	int t = stoi(tamBloco);
 	int valor = 0;
 
 	//Inicializo o id e o endereço do bloco na memoria com os seus respectivos números
 	for(int i = 0; i < this->tamBloco; i++){
 		bloco[i].setIdBloco(to_string(valor));
 		bloco[i].setEndereco(to_string(i));	
-		if(i%t == t-1){
+		if(i%tamBloco == tamBloco-1){
 			valor++;
 		}	
 	}
@@ -31,6 +30,10 @@ MemoriaPrincipal::MemoriaPrincipal(string blocosMemoria, string tamBloco){
 
 MemoriaPrincipal::~MemoriaPrincipal(){
 	delete[] bloco;
+}
+
+Bloco * MemoriaPrincipal::getBloco(){
+	return bloco;
 }
 
 /*int MemoriaPrincipal::getTam(){

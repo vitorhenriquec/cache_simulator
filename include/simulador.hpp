@@ -17,7 +17,7 @@ class Simulador{
 	public:
 		Simulador();
 		~Simulador();
-		void readInstrucao(string instrucao, Cache &c, Config &config);
+		void readInstrucao(string instrucao, Cache &c, Config &config, MemoriaPrincipal &mem);
 		//void writeInstrucao(string instrucao);
 		//void showCacheMemoria();
 };

@@ -17,7 +17,7 @@ class Cache{
 		int tamLinha;
 	public:
 		Cache();
-		Cache(string linhasCache,string tamBloco);
+		Cache(int linhasCache,int tamBloco);
 		~Cache();
 		int getTamLinha();
 		Bloco * getLinha();
