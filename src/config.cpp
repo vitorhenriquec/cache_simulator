@@ -61,3 +61,7 @@ int Config::getBlocosMemoria(){
 int Config::getTipoMap(){
 	return tipoMap;
 }
+
+int Config::getTipoSubs(){
+	return tipoSubs;
+}

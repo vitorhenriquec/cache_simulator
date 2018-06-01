@@ -8,6 +8,10 @@ using std::endl;
 
 #include<string>
 using std::string;
+using std::to_string;
+
+#include <stdlib.h>
+#include <time.h>         
 
 #include"cache.hpp"
 #include"memprincipal.hpp"
@@ -18,8 +22,9 @@ class Simulador{
 		Simulador();
 		~Simulador();
 		void readInstrucao(string instrucao, Cache &c, Config &config, MemoriaPrincipal &mem);
-		//void writeInstrucao(string instrucao);
-		//void showCacheMemoria();
+		//void writeInstrucao(string instrucao, string valor, Cache &c);
+		void showCacheMemoria(Cache &c, MemoriaPrincipal &mem);
+		static int ciclo;
 };
 
 #endif

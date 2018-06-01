@@ -6,7 +6,6 @@ MemoriaPrincipal::MemoriaPrincipal(){
 
 MemoriaPrincipal::MemoriaPrincipal(int blocosMemoria, int tamBloco){
 	//Calculo o tamanho do bloco para a memoria
-	//this->tamBloco = stoi(blocosMemoria)*stoi(tamBloco);
 	this->tamBloco = blocosMemoria*tamBloco;
 
 	//Aloco o ponteiro para Bloco
@@ -21,11 +20,6 @@ MemoriaPrincipal::MemoriaPrincipal(int blocosMemoria, int tamBloco){
 			valor++;
 		}	
 	}
-
-	/*cout << "Estado da MemoriaPrincipal com " << this->tamBloco << endl;
-	for(int i = 0; i < this->tamBloco; i++){
-		cout << bloco[i].getIdBloco() << "-" << bloco[i].getEndereco() << endl;
-	}*/
 }
 
 MemoriaPrincipal::~MemoriaPrincipal(){
@@ -36,7 +30,15 @@ Bloco * MemoriaPrincipal::getBloco(){
 	return bloco;
 }
 
-/*int MemoriaPrincipal::getTam(){
-	return tam;
-}*/
+int MemoriaPrincipal::getTamBloco(){
+	return tamBloco;
+}
+
+void MemoriaPrincipal::printMemoria(){
+	cout << "--- Memoria Principal ---" << endl;
+	cout << "Bloco  - Endereço - Conteúdo" << endl;
+	for(int i = 0; i < tamBloco; i++){
+		cout << bloco[i] << endl;
+	}
+}
 

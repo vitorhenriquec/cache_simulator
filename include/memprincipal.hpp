@@ -22,6 +22,7 @@ class MemoriaPrincipal{
 		MemoriaPrincipal(int blocosMemoria, int tamBloco);
 		~MemoriaPrincipal();
 		Bloco * getBloco();
-		//int getTamBloco();
+		int getTamBloco();
+		void printMemoria();
 	};
 #endif

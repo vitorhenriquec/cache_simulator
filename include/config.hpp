@@ -26,6 +26,7 @@ class Config{
 		int getTamBloco();
 		int getBlocosMemoria();
 		int getTipoMap();
+		int getTipoSubs();
 };
 
 #endif

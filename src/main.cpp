@@ -35,7 +35,7 @@ int main(){
 			//s.writeInstrucao(tmp1,tmp2,c,mem);
 		}
 		else if(op == "Show"){
-			//s.show()
+			s.showCacheMemoria(c,mem);
 		}
 
 	}while(op!="Exit");

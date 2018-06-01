@@ -14,13 +14,20 @@ using std::stoi;
 class Cache{
 	protected:
 		Bloco *linha;
-		int tamLinha;
+		int * refTemporal;
+		int * freq;
+		int * FIFO;
+		int tamLinha,blocosLinha;
 	public:
 		Cache();
 		Cache(int linhasCache,int tamBloco);
 		~Cache();
 		int getTamLinha();
+		int * getRefTemporal();
+		int * getFreq();
+		int * getFIFO();
 		Bloco * getLinha();
+		void printCache();
 };
 
 #endif
