@@ -6,7 +6,7 @@
 Programa que simula o comportamento interno de uma *cache* L1 e da memória principal. O simulador recebe como entrada uma sequencia de comandos que podem ser de leitura ou escrita e o endereço solicitado. A *cache* simulada deve verificar a presença ou não do bloco contendo o dado solicitado (acarretando em um *Hit* ou *Miss*). O simulador deve ser configurável no que diz respeito aos aspectos de projeto de cache discutidos em sala: Mapeamento(Direto, Totalmente Associativo, Parcialmente Associal), Politica de Substituição(Direta,*FIFO*,*LRU*,*LFU*) e Política de Escrita(*Write-through*).
 
 ## Arquivo de configuração ##
-O programa lê o arquivo `.config.txt` presente na pasta `config`. Para o funcionamente o programa lê do arquivo e interpretra os valores da seguinte maneira:<br>
+O programa lê o arquivo `.config.txt` presente na pasta `config`.Ele interpretra os valores do arquivo da seguinte maneira:<br>
 
 
 - Tamanho do bloco (em número de palavras)
