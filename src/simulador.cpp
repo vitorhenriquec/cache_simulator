@@ -270,6 +270,7 @@ void Simulador::readInstrucao(string endereco, Cache &c, Config &config, Memoria
 
 }
 
+//FIX: For some reason segmentation fault 
 /*void Simulador::writeInstrucao(string instrucao, string valor, Cache &c, MemoriaPrincipal &mem){
 	//Salvo os ponteiros da memória e cache em ponteiros temporários
 	Bloco * tmp1 = c.getLinha();
