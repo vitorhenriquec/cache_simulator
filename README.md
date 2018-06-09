@@ -18,7 +18,7 @@ O programa lê o arquivo `.config.txt` presente na pasta `config`. Para o funcio
 ```
 
 ## Comandos ##
-O simulador aceita como entrada 3 comandos: *Read*, *Write* e *Show*. O comando *Show* mostra a situação da *cache* L1 e da memória principal. Já o comando *Read* aceita como argumento o endereço do bloco dá memória a ser lido. Como resposta o programa deve retorna `Hit` ou `Miss` e e a linha da cache que contém o bloco solicitado. Por fim, o comando *Write*, que recebe como argumento um endereço e o valor, escreve nesse endereço o valor especificado. 
+O simulador aceita como entrada 3 comandos: *Read*, *Write* e *Show*. O comando *Show* mostra a situação da *cache* L1 e da memória principal. Já o comando *Read* aceita como argumento o endereço do bloco dá memória a ser lido. Como resposta o programa deve retorna *Hit* ou *Miss* e e a linha da cache que contém o bloco solicitado. Por fim, o comando *Write*, que recebe como argumento um endereço e o valor, escreve nesse endereço o valor especificado. 
 
 ## Compilação ##
 
