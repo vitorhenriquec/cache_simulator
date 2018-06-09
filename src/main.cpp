@@ -9,13 +9,13 @@ using namespace std;
 
 int main(){
 	//Salva as configurações do .txt
-	Config config("config/.config.txt");
+	Config * config = new Config("config/.config.txt");
 
 	//Instacia a cache com suas linhas
-	Cache c(config.getLinhasCache(),config.getTamBloco(),config.getTipoSubs());
+	Cache *c = new Cache(config->getLinhasCache(),config->getTamBloco(),config->getTipoSubs());
 
 	//Instacia a memoria com seus blocos
-	MemoriaPrincipal mem(config.getBlocosMemoria(),config.getTamBloco());
+	MemoriaPrincipal * mem = new MemoriaPrincipal(config->getBlocosMemoria(),config->getTamBloco());
  	
 	//Instacia um simulador para executar as ações
 	Simulador s;
@@ -30,13 +30,15 @@ int main(){
 		else if(op == "Write"){
 			cin >> tmp1;
 			cin >> tmp2;
-			//s.writeInstrucao(tmp1,tmp2,c,mem);
+			s.writeInstrucao(tmp1,tmp2,c,mem);
 		}
 		else if(op == "Show"){
 			s.showCacheMemoria(c,mem);
 		}
 
 	}while(op!="Exit");
-	
+	delete[] config;
+	delete[] c;
+	delete[] mem;
 	return 0;
 }
