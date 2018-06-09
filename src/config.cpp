@@ -65,3 +65,7 @@ int Config::getTipoMap(){
 int Config::getTipoSubs(){
 	return tipoSubs;
 }
+
+int Config::getQtdConjuntos(){
+	return qtdConjuntos;
+}

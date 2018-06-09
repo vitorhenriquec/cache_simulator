@@ -20,9 +20,10 @@ class Cache{
 		int tamLinha,blocosLinha;
 	public:
 		Cache();
-		Cache(int linhasCache,int tamBloco);
+		Cache(int linhasCache,int tamBloco,int tipoSubs);
 		~Cache();
 		int getTamLinha();
+		int getBlocosLinha();
 		int * getRefTemporal();
 		int * getFreq();
 		int * getFIFO();

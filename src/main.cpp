@@ -7,18 +7,16 @@ using namespace std;
 #include"../include/memprincipal.hpp"
 #include"../include/simulador.hpp"
 
-
 int main(){
 	//Salva as configurações do .txt
 	Config config("config/.config.txt");
 
 	//Instacia a cache com suas linhas
-	Cache c(config.getLinhasCache(),config.getTamBloco());
+	Cache c(config.getLinhasCache(),config.getTamBloco(),config.getTipoSubs());
 
 	//Instacia a memoria com seus blocos
 	MemoriaPrincipal mem(config.getBlocosMemoria(),config.getTamBloco());
-
-	
+ 	
 	//Instacia um simulador para executar as ações
 	Simulador s;
 	//Pede que o usuário digite algum comando e caso for 'exit' finaliza o programa;

@@ -27,6 +27,7 @@ class Config{
 		int getBlocosMemoria();
 		int getTipoMap();
 		int getTipoSubs();
+		int getQtdConjuntos();
 };
 
 #endif

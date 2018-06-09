@@ -22,7 +22,7 @@ class Simulador{
 		Simulador();
 		~Simulador();
 		void readInstrucao(string instrucao, Cache &c, Config &config, MemoriaPrincipal &mem);
-		//void writeInstrucao(string instrucao, string valor, Cache &c);
+		//void writeInstrucao(string instrucao, string valor, Cache &c, MemoriaPrincipal &mem);
 		void showCacheMemoria(Cache &c, MemoriaPrincipal &mem);
 		static int ciclo;
 };

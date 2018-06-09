@@ -27,6 +27,7 @@ class Bloco{
 		string getIdBloco();
 		void setIdBloco(string idBloco);
 		void setEndereco(string endereco);
+		void setConteudo(string conteudo);
 		friend ostream& operator<<(ostream &o, Bloco &b);
 		//friend Bloco& operator=(const Bloco &b);
 };

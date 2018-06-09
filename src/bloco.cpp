@@ -26,6 +26,10 @@ void Bloco::setEndereco(string endereco){
 	this->endereco = endereco;
 }
 
+void Bloco::setConteudo(string conteudo){
+	this->conteudo = conteudo;
+}
+
 ostream& operator<<(ostream &o, Bloco &b){
 	o << b.idBloco << " - " << b.endereco << " - " << b.conteudo;
 	return o;
