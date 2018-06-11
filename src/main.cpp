@@ -42,6 +42,10 @@ int main(){
 			indice = s.searchInstrucao(tmp1,c);
 			if(indice == -1){
 				s.readInstrucao(tmp1,c,config,mem,indice);
+				cout << "MISS ";
+			}
+			else{
+				cout << "HIT ";
 			}
 			s.writeInstrucao(tmp1,tmp2,c,mem,indice);
 

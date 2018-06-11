@@ -293,8 +293,8 @@ void Simulador::writeInstrucao(string instrucao, string valor,Cache *c,MemoriaPr
 	if(c->getLinha() != nullptr && mem->getBloco() != nullptr){
 		tmp2 = mem->getBloco();
 		tmp1 = c->getLinha();
-	
-		cout << "HIT linha" << indice/c->getBlocosLinha() << "-> novo valor do endereço" << instrucao << "= " << valor << endl;
+		
+		cout << "linha" << indice/c->getBlocosLinha() << "-> novo valor do endereço" << instrucao << "= " << valor << endl;
 		tmp1[indice].setConteudo(valor);
 		tmp2[stoi(instrucao)/c->getBlocosLinha()].setConteudo(valor);
 	}
