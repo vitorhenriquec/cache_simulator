@@ -9,39 +9,33 @@ Cache::Cache(int linhasCache,int tamBloco, int tipoSubs){
 	blocosLinha = tamBloco;
 	// Aloco um ponteiro para Bloco de acordo com a dimensão de indices para representar as linhas da Cache
 	linha = new Bloco[tamLinha];
-	//cout << tipoSubs << endl; 
-	//switch(tipoSubs){
-		//case 2: //FIFO
-			//Aloco e inicializo um ponteiro que referencia qual o primeiro bloco o qual entrou na Cache
+	
+	//Inicializo os ponteiros para inteiro
+	FIFO = nullptr;
+	refTemporal = nullptr;
+	freq = nullptr;
+
+	//Aloco e inicializo um ponteiro que referencia qual o primeiro bloco o qual entrou na Cache
 	if(tipoSubs == 2){
 		FIFO = new int[linhasCache]{};
 	}
-	else if(tipoSubs == 3){
+	else if(tipoSubs == 4){
 		refTemporal = new int[linhasCache]{};
 	}
-	else if(tipoSubs == 4){
+	else if(tipoSubs == 3){
 		freq = new int[linhasCache] {};
 	}
-		//break;
-		//case 3: //LFU
-			//Aloca uma referência temporal e inicializo com 0 para o modo LRU
-		//break;
-		//case 4: //LRU
-			//Aloco um contador de frequências, incializando ele com 0
-			
-		//break;
-	//}
 }
 
 Cache::~Cache(){
 	delete[] linha;
-	if(refTemporal!=NULL){
+	if(refTemporal!=nullptr){
 		delete[] refTemporal;
 	}
-	if(freq!=NULL){
+	if(freq!=nullptr){
 		delete[] freq;
 	}
-	if(FIFO!=NULL){
+	if(FIFO!=nullptr){
 		delete[] FIFO;
 	}
 }

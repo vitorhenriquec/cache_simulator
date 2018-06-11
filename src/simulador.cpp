@@ -10,7 +10,7 @@ Simulador::~Simulador(){
 
 }
 
-void Simulador::readInstrucao(string endereco, Cache *c, Config * config, MemoriaPrincipal *mem){
+void Simulador::readInstrucao(string endereco, Cache *c, Config * config, MemoriaPrincipal *mem, int &indicemiss){
 	//Acrescente 1 ao ciclo toda vez que ele lê algo
 	ciclo++;
 
@@ -46,6 +46,7 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 		cout << "MISS" << endl;
 		//Defino qual bloco é referente ao endereco
 		blocoEndereco = stoi(endereco)/tamBloco;
+		indicemiss = blocoEndereco;
 
 		//Verifica o tipo de mapeamento
 		if(configMap == 1){ //Mapeamente Direto
@@ -53,6 +54,9 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 			//Defino para qual linha da cache esse endereço vai
 			linhaMap = blocoEndereco%config->getLinhasCache();
 			cout << "Alocado na linha:" << linhaMap << endl;
+			if(tmp1[linhaMap].getEndereco() != "N"){
+				cout << "Bloco " <<  tmp1[linhaMap].getIdBloco() << " substituído" << endl;
+			}
 
 			j = 0;
 			//Percorro a memória para substituir os valores
@@ -124,8 +128,9 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 							}
 							cout << freq[k] << endl;
 						}
-						cout << "menroFreq" << menorFreq << endl;
+						//cout << "menroFreq" << menorFreq << endl;
 						linhaMap = indiceMenorFreq;
+						//cout << "A:" << linhaMap << endl;
 						freq[linhaMap] = 1;
 					break;
 					case 4: //LRU
@@ -145,6 +150,7 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 					break;
 				}
 				cout << "Alocado na linha:" << linhaMap << endl;
+				cout << "Bloco " <<  tmp1[linhaMap].getIdBloco() << " substituído" << endl;
 			}
 
 			j = 0; //Garanto que o j começa de 0
@@ -247,6 +253,7 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 					break;
 				}
 				cout << "Alocado na linha " << linhaMap << endl;
+				cout << "Bloco " <<  tmp1[linhaMap].getIdBloco() << " substituído" << endl;
 			}
 
 			j = 0; //Garanto que o j começa de 0
@@ -266,45 +273,31 @@ void Simulador::readInstrucao(string endereco, Cache *c, Config * config, Memori
 
 }
 
-//FIX: For some reason segmentation fault 
-void Simulador::writeInstrucao(string instrucao, string valor, Cache *c, MemoriaPrincipal *mem){
-	//Salvo os ponteiros da memória e cache em ponteiros temporários
-	Bloco * tmp1, * tmp2;
-	if(c->getLinha() != NULL && mem->getBloco() != NULL){
+int Simulador::searchInstrucao(string instrucao,Cache *c){
+	Bloco * tmp1 = nullptr;
+	if(c->getLinha() != nullptr){
 		tmp1 = c->getLinha();
+		for(int i = 0; i < c->getTamLinha(); i++){
+			if(tmp1[i].getEndereco() == instrucao){
+				return i;
+			}
+		}
+	}
+	return -1;
+}
+
+//FIX: For some reason segmentation fault 
+void Simulador::writeInstrucao(string instrucao, string valor,Cache *c,MemoriaPrincipal *mem, int &indice){
+	//Salvo os ponteiros da memória e cache em ponteiros temporários
+	Bloco * tmp2 = nullptr, *tmp1 = nullptr;
+	if(c->getLinha() != nullptr && mem->getBloco() != nullptr){
 		tmp2 = mem->getBloco();
+		tmp1 = c->getLinha();
+	
+		cout << "HIT linha" << indice/c->getBlocosLinha() << "-> novo valor do endereço" << instrucao << "= " << valor << endl;
+		tmp1[indice].setConteudo(valor);
+		tmp2[stoi(instrucao)/c->getBlocosLinha()].setConteudo(valor);
 	}
-	int indiceMemoria = (int) stoi(instrucao); 
-	bool hit  = 0;
-	//Política de escrita write 
-	// Procuro pela instrução na cache
-	for(int i = 0; i < c->getTamLinha(); i++){
-		if(tmp1[i].getEndereco() == instrucao){
-			cout << "HIT linha" << i/c->getBlocosLinha() << "-> novo valor do endereço" << instrucao << "= " << valor << endl;
-			tmp1[i].setConteudo(valor);
-			hit = 1;
-			if(indiceMemoria < mem->getTamBloco()){
-				tmp2[indiceMemoria].setConteudo(valor);
-			}
-			break;
-		}
-	}
-	if(!hit){
-		cout << "MISS" << endl;
-	}
-	/*
-	if(!hit){
-		cout << "MISS" << endl;
-	}
-	else{
-		for(int i = 0; i < mem.getTamBloco(); i++){
-			if(tmp2[i].getEndereco() == instrucao){
-				cout << i << endl;
-				tmp2[i].setConteudo(valor);
-				break;
-			}
-		}
-	}*/
 }
 
 void Simulador::showCacheMemoria(Cache *c, MemoriaPrincipal *mem){

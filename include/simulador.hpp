@@ -21,8 +21,9 @@ class Simulador{
 	public:
 		Simulador();
 		~Simulador();
-		void readInstrucao(string instrucao, Cache *c, Config *config, MemoriaPrincipal *mem);
-		void writeInstrucao(string instrucao, string valor, Cache *c, MemoriaPrincipal *mem);
+		void readInstrucao(string instrucao, Cache *c, Config *config, MemoriaPrincipal *mem, int &indice);
+		int searchInstrucao(string instrucao,Cache *c);
+		void writeInstrucao(string instrucao, string valor,Cache *c,MemoriaPrincipal *mem, int &indice);
 		void showCacheMemoria(Cache *c, MemoriaPrincipal *mem);
 		static int ciclo;
 };
