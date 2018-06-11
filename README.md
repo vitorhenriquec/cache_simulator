@@ -8,7 +8,6 @@ Programa que simula o comportamento interno de uma *cache* L1 e da memória prin
 ## Arquivo de configuração ##
 O programa lê o arquivo `config.txt` presente na pasta `config`.Ele interpretra os valores do arquivo da seguinte maneira:<br>
 
-
 - Tamanho do bloco (em número de palavras)
 - Numero de linhas da cache
 - Numero de blocos da memória principal
