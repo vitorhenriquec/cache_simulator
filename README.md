@@ -12,7 +12,7 @@ O programa lê o arquivo `config.txt` presente na pasta `config`.Ele interpretra
 - Numero de linhas da cache
 - Numero de blocos da memória principal
 - Mapeamento (1 – Direto(*directed-mapped*); 2 – Totalmente Associativo(*fully associative*); 3 – Parcialmente Associativo(*n-way setassociative*))
-- Numero de conjuntos (caso não seja Parcialmente Associativo, ler o valor normalmente mas desconsidere-o)
+- Numero de conjuntos (caso não seja Parcialmente Associativo, desconsiderar)
 - Política de substituição (1 – Aleatório; 2 – *FIFO*; 3 – *LFU*; 4 – *LRU*) 
 
 ## Comandos ##
